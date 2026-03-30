@@ -1,2 +1,2 @@
-# msubah.github.io
+# mohseurashid.github.io
 Personal academic website and portfolio.
