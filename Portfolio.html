@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohseu Rashid Subah | PhD Candidate, Purdue BME</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+/* ===== RESET ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+/* ===== VARIABLES ===== */
+:root {
+  --cream:    #faf8f4;
+  --paper:    #f0ece4;
+  --card:     #ffffff;
+  --ink:      #111111;
+  --ink-2:    #333333;
+  --ink-3:    #555555;
+  --rule:     #dedad2;
+  --blue:     #1e3a5f;
+  --blue-mid: #2d5282;
+  --blue-lt:  #dbeafe;
+  --mono:     'IBM Plex Mono', monospace;
+  --serif:    'Source Serif 4', Georgia, serif;
+  --display:  'Playfair Display', Georgia, serif;
+}
+
+/* ===== BASE ===== */
+body {
+  font-family: var(--serif);
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.8;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== LAYOUT ===== */
+.wrap { max-width: 940px; margin: 0 auto; padding: 0 2rem; }
+
+/* ===== NAV ===== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: rgba(250, 248, 244, 0.95);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-inner {
+  max-width: 940px; margin: 0 auto; padding: 0 2rem;
+  height: 52px; display: flex; align-items: center; justify-content: space-between;
+}
+.nav-name {
+  font-family: var(--display); font-size: 1rem; font-weight: 500;
+  color: var(--blue); text-decoration: none; letter-spacing: 0.01em; white-space: nowrap;
+}
+.nav-links { list-style: none; display: flex; flex-wrap: wrap; }
+.nav-links a {
+  display: block; padding: 0.28rem 0.65rem;
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--ink-3); text-decoration: none; border-radius: 4px;
+  transition: color .18s, background .18s;
+}
+.nav-links a:hover { color: var(--blue); background: var(--blue-lt); }
+
+/* ===== HERO ===== */
+.hero {
+  padding-top: 6.5rem; padding-bottom: 4.5rem;
+  display: grid; grid-template-columns: 1fr 200px; gap: 3.5rem; align-items: start;
+}
+.hero > * { animation: riseIn .7s ease both; }
+.hero > *:nth-child(2) { animation-delay: .1s; }
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hero-label {
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--blue-mid); margin-bottom: .7rem; display: flex; align-items: center; gap: .6rem;
+}
+.hero-label::before {
+  content: ''; display: inline-block; width: 24px; height: 1.5px; background: var(--blue-mid);
+}
+.hero-name {
+  font-family: var(--display); font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 700;
+  line-height: 1.1; letter-spacing: -.015em; color: var(--ink); margin-bottom: .55rem;
+}
+.hero-role {
+  font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-2);
+  font-style: italic; margin-bottom: 1.3rem;
+}
+.hero-bio {
+  font-size: 1rem; color: var(--ink-2); max-width: 540px;
+  margin-bottom: 1rem; line-height: 1.85; font-weight: 400;
+}
+.hero-bio strong { font-weight: 700; color: var(--ink); }
+.hero-bio a { color: var(--blue-mid); text-decoration: none; }
+.hero-bio a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.hero-actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-bottom: 1.3rem; }
+.btn {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .5rem 1.15rem; border-radius: 6px; font-size: .88rem; font-weight: 500;
+  font-family: var(--serif); text-decoration: none; transition: all .18s; cursor: pointer; border: none;
+}
+.btn-primary { background: var(--blue); color: #fff; }
+.btn-primary:hover { background: var(--blue-mid); box-shadow: 0 4px 14px rgba(30,58,95,.25); transform: translateY(-1px); }
+.btn-ghost { background: transparent; color: var(--ink-2); border: 1.5px solid var(--rule); }
+.btn-ghost:hover { border-color: var(--blue-mid); color: var(--blue-mid); background: var(--blue-lt); }
+
+.hero-icon-row { display: flex; align-items: center; gap: .7rem; flex-wrap: wrap; }
+.icon-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 6px; border: 1.5px solid var(--rule);
+  color: var(--ink-3); text-decoration: none; transition: all .18s;
+}
+.icon-btn:hover { border-color: var(--blue-mid); color: var(--blue-mid); background: var(--blue-lt); }
+.icon-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+/* Photo */
+.hero-photo-wrap { padding-top: 3.5rem; }
+.hero-photo {
+  width: 190px; height: 190px; border-radius: 8px; overflow: hidden;
+  border: 1.5px solid var(--rule); background: var(--paper);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 5px 5px 0 var(--rule);
+}
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-location {
+  margin-top: .75rem; font-family: var(--mono); font-size: .7rem;
+  color: var(--ink-3); letter-spacing: .04em; text-align: center;
+}
+
+/* ===== SECTION CHROME ===== */
+section { padding: 4rem 0 0; }
+section:last-of-type { padding-bottom: 5rem; }
+.sec-label { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+.sec-label h2 {
+  font-family: var(--display); font-size: 1.55rem; font-weight: 500;
+  letter-spacing: -.01em; color: var(--ink); white-space: nowrap;
+}
+.sec-rule { flex: 1; height: 1px; background: var(--rule); }
+.sec-num { font-family: var(--mono); font-size: .68rem; color: var(--ink-3); letter-spacing: .06em; }
+
+/* ===== TIMELINE (Education & Experience) ===== */
+.tl-list { display: flex; flex-direction: column; }
+.tl-item {
+  display: grid; grid-template-columns: 130px 1fr;
+  gap: 0 1.8rem; padding: 1.5rem 0; border-top: 1px solid var(--rule);
+}
+.tl-item:last-child { border-bottom: 1px solid var(--rule); }
+
+.tl-left { display: flex; flex-direction: column; align-items: center; gap: .6rem; padding-top: .1rem; }
+.tl-logo {
+  width: 52px; height: 52px; border-radius: 6px;
+  border: 1px solid var(--rule); background: var(--paper);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; flex-shrink: 0;
+}
+.tl-logo img { width: 100%; height: 100%; object-fit: contain; padding: 4px; }
+.tl-period {
+  font-family: var(--mono); font-size: .72rem; color: var(--ink-3);
+  line-height: 1.5; letter-spacing: .02em; text-align: center;
+}
+
+.tl-title { font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: .15rem; }
+.tl-sub { font-size: .9rem; color: var(--blue-mid); margin-bottom: .3rem; font-weight: 500; }
+.tl-sub a { color: var(--blue-mid); text-underline-offset: 3px; }
+.tl-detail { font-size: .88rem; color: var(--ink-2); font-style: italic; line-height: 1.6; }
+.tl-badge {
+  display: inline-block; font-family: var(--mono); font-size: .62rem;
+  letter-spacing: .07em; text-transform: uppercase;
+  color: var(--blue-mid); background: var(--blue-lt); padding: .1rem .45rem;
+  border-radius: 3px; border: 1px solid #bfdbfe; margin-top: .5rem;
+}
+.tl-bullets {
+  font-size: .9rem; color: var(--ink-2); font-weight: 400;
+  line-height: 1.85; padding-left: 1.1rem; margin-top: .4rem;
+}
+.tl-bullets > li { margin-bottom: .25rem; }
+
+/* Course sub-list */
+.course-list {
+  list-style: none; padding-left: 0; margin: 0;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: .35rem .9rem;
+}
+.course-list li { font-size: .84rem; color: var(--ink-2); font-weight: 400; line-height: 1.5; }
+.course-list li strong { color: var(--ink-2); font-weight: 600; }
+
+/* ===== SKILLS — card grid ===== */
+.skills-grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem;
+}
+.skill-group {
+  background: var(--card); border: 1.5px solid var(--rule); border-radius: 8px;
+  padding: 1.2rem 1.3rem; box-shadow: 0 2px 10px rgba(30,58,95,.04);
+}
+.skill-group h3 {
+  font-size: .8rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .08em; color: var(--blue); margin-bottom: .9rem;
+}
+.tags { display: flex; flex-wrap: wrap; gap: .45rem; }
+.chip {
+  display: inline-block; padding: .22rem .65rem;
+  border: 1.5px solid var(--rule); border-radius: 4px;
+  font-family: var(--mono); font-size: .76rem; color: var(--ink-2);
+  background: var(--card); font-weight: 400;
+}
+.chip-p { border-color: #bfdbfe; background: var(--blue-lt); color: var(--ink); font-weight: 400; }
+
+/* ===== PROJECTS ===== */
+.proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; }
+.proj-card {
+  background: var(--card); border: 1.5px solid var(--rule); border-radius: 8px;
+  overflow: hidden; box-shadow: 0 1px 8px rgba(0,0,0,.05);
+  display: flex; flex-direction: column;
+  transition: border-color .18s, transform .18s, box-shadow .18s;
+}
+.proj-card:hover { border-color: #93c5fd; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(30,58,95,.1); }
+
+.proj-img {
+  width: 100%; height: 160px; overflow: hidden;
+  background: var(--paper); display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--rule); flex-shrink: 0;
+}
+.proj-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.proj-body { padding: 1.2rem 1.3rem; display: flex; flex-direction: column; flex: 1; }
+.proj-era {
+  font-family: var(--mono); font-size: .63rem; letter-spacing: .07em; text-transform: uppercase;
+  color: var(--blue-mid); margin-bottom: .4rem;
+}
+.proj-title { font-size: .97rem; font-weight: 700; color: var(--ink); margin-bottom: .4rem; line-height: 1.4; }
+.proj-summary { font-size: .88rem; color: var(--ink-3); line-height: 1.75; font-weight: 400; margin-bottom: .9rem; flex: 1; }
+.proj-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .5rem; }
+.proj-tags { display: flex; flex-wrap: wrap; gap: .3rem; }
+.learn-more-btn {
+  font-family: var(--mono); font-size: .72rem; letter-spacing: .04em;
+  color: var(--blue-mid); background: none; border: 1.5px solid #bfdbfe;
+  padding: .25rem .65rem; border-radius: 5px; cursor: pointer;
+  transition: all .18s; text-decoration: none;
+}
+.learn-more-btn:hover { background: var(--blue-lt); border-color: var(--blue-mid); }
+
+/* Modal */
+.proj-modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 500;
+  background: rgba(0,0,0,.45); backdrop-filter: blur(4px);
+  align-items: center; justify-content: center; padding: 2rem;
+}
+.proj-modal-overlay.open { display: flex; }
+.proj-modal {
+  background: var(--card); border-radius: 10px; max-width: 640px; width: 100%;
+  max-height: 85vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  animation: modalIn .25s ease;
+}
+@keyframes modalIn { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: none; } }
+
+.modal-img {
+  width: 100%; overflow: hidden; flex-shrink: 0;
+  background: var(--paper); display: flex; align-items: center; justify-content: center;
+}
+.modal-img img { width: 100%; height: auto; object-fit: cover; display: block; }
+
+.modal-body { padding: 1.8rem; }
+.modal-era {
+  font-family: var(--mono); font-size: .65rem; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--blue-mid); margin-bottom: .4rem;
+}
+.modal-title {
+  font-family: var(--display); font-size: 1.3rem; font-weight: 600;
+  color: var(--ink); margin-bottom: .8rem; line-height: 1.3;
+}
+.modal-desc {
+  font-size: .93rem; color: var(--ink-2); line-height: 1.85;
+  font-weight: 400; margin-bottom: 1.1rem;
+}
+.modal-desc p { margin-bottom: .85rem; }
+.modal-desc p:last-child { margin-bottom: 0; }
+.modal-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.2rem; }
+.modal-close {
+  display: block; width: 100%; padding: .55rem;
+  font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase;
+  background: var(--paper); border: 1.5px solid var(--rule); border-radius: 6px;
+  cursor: pointer; color: var(--ink-3); transition: all .18s;
+}
+.modal-close:hover { background: var(--rule); }
+
+/* ===== PUBLICATIONS ===== */
+.pub-section-hd {
+  font-family: var(--mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink-3); margin: 1.8rem 0 .8rem; padding-bottom: .35rem;
+  border-bottom: 1px solid var(--rule);
+}
+.pub-section-hd:first-of-type { margin-top: 0; }
+.pub-list-bulleted { margin: 0; padding-left: 1.4rem; }
+.pub-list-bulleted li::marker { color: var(--ink-2); }
+.pub-entry { margin-bottom: 1rem; padding-left: .2rem; }
+.pub-title { font-size: .97rem; font-weight: 400; color: var(--ink); margin-bottom: .28rem; line-height: 1.5; }
+.pub-title a { color: var(--blue-mid); text-decoration: none; font-weight: 400; }
+.pub-title a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.pub-authors { font-size: .85rem; color: var(--ink-2); margin-bottom: .18rem; font-weight: 400; line-height: 1.5; }
+.pub-authors strong { font-weight: 700; color: var(--ink); }
+.pub-venue { font-family: var(--serif); font-size: .86rem; font-style: italic; color: var(--ink-3); line-height: 1.5; }
+
+/* ===== AWARDS ===== */
+.award-list { display: flex; flex-direction: column; }
+.award-item {
+  display: grid; grid-template-columns: 90px 1fr; gap: 0 2rem;
+  padding: 1.1rem 0; border-top: 1px solid var(--rule); align-items: baseline;
+}
+.award-item:last-child { border-bottom: 1px solid var(--rule); }
+.award-year { font-family: var(--mono); font-size: .72rem; color: var(--ink-3); letter-spacing: .04em; }
+.award-name { font-size: .95rem; font-weight: 700; color: var(--ink); margin-bottom: .15rem; }
+.award-detail { font-size: .86rem; color: var(--ink-3); font-weight: 400; line-height: 1.6; }
+
+/* ===== EDUCATION sub-panels ===== */
+.edu-sub {
+  margin-top: 1.4rem; background: var(--paper); border-radius: 8px;
+  padding: 1.2rem 1.4rem; border: 1px solid var(--rule);
+}
+.edu-sub-hd {
+  font-family: var(--mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink-3); margin-bottom: .85rem; display: flex; align-items: center; gap: .6rem;
+}
+.edu-sub-hd::before { content: ''; flex: none; width: 16px; height: 1.5px; background: var(--ink-3); }
+.edu-cw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: .3rem .8rem; }
+.edu-cw-item { font-size: .84rem; color: var(--ink-2); font-weight: 400; line-height: 1.5; }
+
+/* Scores */
+.scores-pills { display: flex; gap: .6rem; flex-wrap: wrap; }
+.score-pill {
+  flex: 1 1 190px; background: var(--card); border: 1.5px solid var(--rule);
+  border-radius: 6px; padding: .5rem .9rem; font-size: .85rem; color: var(--ink-2); font-weight: 400;
+}
+.score-pill strong {
+  color: var(--blue-mid); font-weight: 700; display: block; font-size: .72rem;
+  font-family: var(--mono); letter-spacing: .05em; text-transform: uppercase; margin-bottom: .15rem;
+}
+
+/* Certifications */
+.cert-list { display: flex; flex-direction: column; gap: .45rem; }
+.cert-item {
+  font-size: .87rem; color: var(--ink-2); font-weight: 400;
+  display: flex; align-items: baseline; gap: .5rem;
+}
+.cert-item::before { content: "↗"; color: var(--blue-mid); font-size: .8rem; flex-shrink: 0; }
+.cert-item a { color: var(--blue-mid); text-decoration: none; font-weight: 500; }
+.cert-item a:hover { text-decoration: underline; }
+.cert-year { font-family: var(--mono); font-size: .72rem; color: var(--ink-3); flex-shrink: 0; }
+
+/* ===== VOLUNTEERING ===== */
+.vol-list { display: flex; flex-direction: column; }
+.vol-item { padding: 1.3rem 0; border-top: 1px solid var(--rule); }
+.vol-item:last-child { border-bottom: 1px solid var(--rule); }
+.vol-header { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: .15rem; }
+.vol-role { font-size: .97rem; font-weight: 700; color: var(--ink); }
+.vol-period { font-family: var(--mono); font-size: .7rem; color: var(--ink-3); }
+.vol-org { font-size: .9rem; color: var(--blue-mid); margin-bottom: .4rem; font-weight: 500; }
+.vol-org a { color: var(--blue-mid); text-underline-offset: 3px; }
+.vol-bullets { font-size: .88rem; color: var(--ink-2); font-weight: 400; line-height: 1.85; padding-left: 1.1rem; }
+.vol-bullets li { margin-bottom: .2rem; }
+
+/* ===== CONTACT ===== */
+.contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+.contact-text h3 { font-family: var(--display); font-size: 1.6rem; font-weight: 500; margin-bottom: .7rem; color: var(--ink); }
+.contact-text p { font-size: .93rem; color: var(--ink-3); font-weight: 400; line-height: 1.85; margin-bottom: 1.2rem; }
+.contact-btns { display: flex; gap: .6rem; flex-wrap: wrap; }
+.contact-card { background: var(--card); border: 1.5px solid var(--rule); border-radius: 6px; padding: 1.5rem; }
+.cc-row {
+  display: flex; gap: .9rem; padding: .75rem 0; border-bottom: 1px solid var(--rule); align-items: center;
+}
+.cc-row:first-child { padding-top: 0; }
+.cc-row:last-child { border-bottom: none; padding-bottom: 0; }
+.cc-icon {
+  width: 30px; height: 30px; border-radius: 5px; border: 1.5px solid var(--rule);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--ink-3);
+}
+.cc-icon svg { width: 15px; height: 15px; fill: currentColor; }
+.cc-content { display: flex; flex-direction: column; }
+.cc-label { font-family: var(--mono); font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); line-height: 1; }
+.cc-val { font-size: .9rem; color: var(--ink-2); font-weight: 400; line-height: 1.4; }
+.cc-val a { color: var(--blue-mid); text-decoration: none; }
+.cc-val a:hover { text-decoration: underline; }
+
+/* ===== FOOTER ===== */
+footer {
+  border-top: 1px solid var(--rule); padding: 1.5rem 2rem;
+  display: flex; justify-content: space-between; align-items: center;
+  max-width: 940px; margin: 0 auto;
+}
+.footer-name { font-family: var(--display); font-size: .9rem; color: var(--ink-3); font-style: italic; }
+.footer-note { font-family: var(--mono); font-size: .65rem; color: var(--ink-3); letter-spacing: .04em; }
+
+/* ===== SCROLL REVEAL ===== */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-photo-wrap { display: flex; justify-content: center; order: -1; padding-top: 0; }
+  .nav-links { display: none; }
+  .tl-item { grid-template-columns: 1fr; }
+  .tl-left { flex-direction: row; align-items: center; justify-content: flex-start; margin-bottom: .3rem; }
+  .tl-period { text-align: left; }
+  .contact-inner { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: .5rem; text-align: center; }
+  .proj-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ════ NAV ════ -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-name" href="#home">Mohseu Rashid Subah</a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#volunteering">Volunteering</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<!-- ════ HOME ════ -->
+<section id="home">
+  <div class="hero">
+    <div class="hero-text">
+      <h1 class="hero-name">Mohseu Rashid Subah</h1>
+      <p class="hero-role">Weldon School of Biomedical Engineering, Purdue University</p>
+      <p class="hero-bio">
+        Hi, I am Subah! I am a Ph.D. candidate at the <a href="https://engineering.purdue.edu/BME" target="_blank">Weldon School of Biomedical Engineering</a> at
+        <a href="https://www.purdue.edu" target="_blank">Purdue University, West Lafayette</a> (Boiler Up!). I am a graduate research assistant at the
+        <a href="https://engineering.purdue.edu/QBIS" target="_blank">QBIS Lab</a> and an <a href="https://www.aauw.org/" target="_blank">AAUW</a> International Doctoral Degree Fellow (2025–2026). I received my B.Sc. in Electrical and Electronic Engineering from <a href="https://www.buet.ac.bd/web/#/" target="_blank">Bangladesh University of Engineering and Technology (BUET)</a>, with a major in Communication and Signal Processing.
+      </p>
+      <p class="hero-bio">
+        My research lies at the intersection of <strong>Signal Processing</strong>, <strong>Machine Learning</strong>, <strong>Deep Learning</strong>, and <strong>Computer Vision</strong> for biomedical image and clinical data analysis. Specifically, I explore label-efficient learning strategies using foundation models for medical image segmentation and classification, and study domain adaptation techniques to improve generalization across datasets. When not engaged in research, I enjoy reading and traveling.
+      </p>
+      <div class="hero-actions">
+        <a href="Resume.pdf" class="btn btn-primary" download>↓ Download CV</a>
+        <a href="https://scholar.google.com/citations?user=VcC-JzsAAAAJ&hl=en" class="btn btn-ghost" target="_blank">Google Scholar</a>
+        <a href="https://github.com/mohseurashid" class="btn btn-ghost" target="_blank">GitHub</a>
+      </div>
+      <div class="hero-icon-row">
+        <a href="mailto:msubah@purdue.edu" class="icon-btn" title="Email">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
+        <a href="https://scholar.google.com/citations?user=VcC-JzsAAAAJ&hl=en" class="icon-btn" title="Google Scholar" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5 12 0z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/mohseu-rashid-subah" class="icon-btn" title="LinkedIn" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://github.com/mohseurashid" class="icon-btn" title="GitHub" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-photo-wrap">
+      <div class="hero-photo">
+        <img src="Images/Photo.jpg" alt="Mohseu Rashid Subah">
+      </div>
+      <div class="hero-location">📍 West Lafayette, IN, USA</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ PROFESSIONAL EXPERIENCE ════ -->
+<section id="experience" class="reveal">
+  <div class="sec-label">
+    <span class="sec-num">01</span>
+    <h2>Professional Experience</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="tl-list">
+
+    <!-- Graduate Research Assistant -->
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-logo"><img src="Images/Purdue.png" alt="Purdue University"></div>
+        <div class="tl-period">Summer 2025–<br>Present<br>&amp;<br>Fall 2023–<br>Fall 2024</div>
+      </div>
+      <div>
+        <div class="tl-title">Graduate Research Assistant</div>
+        <div class="tl-sub"><a href="https://engineering.purdue.edu/BME" target="_blank">Weldon School of Biomedical Engineering, Purdue University, West Lafayette, IN, USA</a></div>
+        <div class="tl-detail">Supervisor: Dr. Rachel Surowiec</div>
+        <ul class="tl-bullets">
+          <li>Develop AI-driven solutions for medical image analysis across multiple imaging modalities, including HR-pQCT, UTE-MRI, DXA, and ultrasound.</li>
+          <li>Explore self-supervised, semi-supervised, and few-shot learning frameworks for segmentation and musculoskeletal disease characterization with limited annotation.</li>
+          <li>Study domain adaptation using generative models to improve cross-domain performance.</li>
+          <li>Complement deep learning with interpretable, classical machine-learning approaches to support clinical relevance and translational impact.</li>
+          <li>Collect, preprocess, and utilize large-scale private medical imaging datasets alongside public datasets.</li>
+          <li>Collaborate with physicians and radiologists across institutions to support translational research.</li>
+          <li>Mentor undergraduate researchers and proactively manage lab activities to ensure smooth project execution and knowledge sharing.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Graduate Teaching Assistant -->
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-logo"><img src="Images/Purdue.png" alt="Purdue University"></div>
+        <div class="tl-period">Spring 2025 &amp; Spring 2026</div>
+      </div>
+      <div>
+        <div class="tl-title">Graduate Teaching Assistant</div>
+        <div class="tl-sub"><a href="https://engineering.purdue.edu/BME" target="_blank">Weldon School of Biomedical Engineering, Purdue University, West Lafayette, IN, USA</a></div>
+        <ul class="tl-bullets">
+          <li>Designed and graded assignments and exams.</li>
+          <li>Held office hours to provide support on theoretical concepts and problem-solving techniques.</li>
+        </ul>
+        <div class="edu-sub">
+          <div class="edu-sub-hd">Courses Instructed</div>
+          <ul class="course-list">
+            <li><strong>BME 23100:</strong> Bioinstrumentation &amp; Circuit Theory</li>
+            <li><strong>BME 59500:</strong> Bone Biology</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lecturer -->
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-logo"><img src="Images/UIU.png" alt="United International University"></div>
+        <div class="tl-period">Oct 2022–<br>May 2023</div>
+      </div>
+      <div>
+        <div class="tl-title">Lecturer</div>
+        <div class="tl-sub"><a href="https://cse.uiu.ac.bd/" target="_blank">Department of Computer Science and Engineering, United International University, Dhaka, Bangladesh</a></div>
+        <ul class="tl-bullets">
+          <li>Instructed and coordinated freshman and senior-level courses, including theory and laboratory sections, averaging 30–40 students per class.</li>
+          <li>Held regular office hours for personalized guidance and open discussions.</li>
+        </ul>
+        <div class="edu-sub">
+          <div class="edu-sub-hd">Courses Instructed</div>
+          <ul class="course-list">
+            <li><strong>CSE 1325:</strong> Digital Logic Design</li>
+            <li><strong>CSE 1326:</strong> Digital Logic Design Laboratory</li>
+            <li><strong>CSE 4325:</strong> Microprocessors &amp; Microcontrollers</li>
+            <li><strong>CSE 4326:</strong> Microprocessors &amp; Microcontrollers Laboratory</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════ PROJECTS ════ -->
+<section id="projects" class="reveal">
+  <div class="sec-label">
+    <span class="sec-num">02</span>
+    <h2>Research Projects</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="proj-grid">
+
+    <div class="proj-card">
+      <div class="proj-img"><img src="Images/Project 1.png" alt="HR-pQCT segmentation"></div>
+      <div class="proj-body">
+        <div class="proj-era">Purdue · 2024 – Present</div>
+        <div class="proj-title">Automated Bone &amp; Soft Tissue Segmentation from HR-pQCT for Osteoporosis Classification</div>
+        <div class="proj-summary">First transformer-based fully automated multi-region segmentation of HR-pQCT images. Paired with radiomics and classical ML for osteoporosis classification.</div>
+        <div class="proj-footer">
+          <div class="proj-tags"><span class="chip chip-p">SegFormer</span><span class="chip">Radiomics</span><span class="chip">HR-pQCT</span></div>
+          <button class="learn-more-btn" onclick="openModal('modal-1')">Learn More →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-img"><img src="Images/Project 2.png" alt="Mixed-domain SSMIS"></div>
+      <div class="proj-body">
+        <div class="proj-era">Purdue · 2025 – Present</div>
+        <div class="proj-title">Mixed-Domain Semi-Supervised Medical Image Segmentation</div>
+        <div class="proj-summary">Investigating foundation models and GANs for semi-supervised segmentation under domain shift with limited labeled data across imaging modalities.</div>
+        <div class="proj-footer">
+          <div class="proj-tags"><span class="chip chip-p">MedSAM</span><span class="chip chip-p">GAN</span><span class="chip">Mean Teacher</span></div>
+          <button class="learn-more-btn" onclick="openModal('modal-2')">Learn More →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-img"><img src="Images/Project 3.png" alt="Microscale robot tracking"></div>
+      <div class="proj-body">
+        <div class="proj-era">Purdue · 2023 – 2024</div>
+        <div class="proj-title">Microscale Robot Detection &amp; Tracking in Ultrasound Videos</div>
+        <div class="proj-summary">Real-time detection and tracking of magnetic microscale robots navigating a rat colon in ultrasound videos, under challenging in vivo conditions.</div>
+        <div class="proj-footer">
+          <div class="proj-tags"><span class="chip chip-p">YOLOv8</span><span class="chip">Ultrasound</span><span class="chip">Tracking</span></div>
+          <button class="learn-more-btn" onclick="openModal('modal-3')">Learn More →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-img"><img src="Images/Project 4.png" alt="PETALUTE MRI"></div>
+      <div class="proj-body">
+        <div class="proj-era">Purdue · 2023 – 2024</div>
+        <div class="proj-title">Novel MRI Sequence Processing (Rosette K-Space Trajectory / PETALUTE)</div>
+        <div class="proj-summary">Implementation and evaluation of a novel MRI sequence for preclinical bone imaging that improves image quality and signal strength over conventional approaches.</div>
+        <div class="proj-footer">
+          <div class="proj-tags"><span class="chip chip-p">UTE-MRI</span><span class="chip">Compressed Sensing</span></div>
+          <button class="learn-more-btn" onclick="openModal('modal-4')">Learn More →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-img"><img src="Images/Project 5.png" alt="EEG sleep staging"></div>
+      <div class="proj-body">
+        <div class="proj-era">BUET · 2021 – 2022</div>
+        <div class="proj-title">Self-Supervised Learning for Single Channel EEG Sleep Stage Classification</div>
+        <div class="proj-summary">Self-supervised contrastive learning framework for automatic sleep stage classification from EEG, achieving strong performance with as little as 30% labeled data.</div>
+        <div class="proj-footer">
+          <div class="proj-tags"><span class="chip chip-p">SSL</span><span class="chip chip-p">SimCLR</span><span class="chip">EEG</span></div>
+          <button class="learn-more-btn" onclick="openModal('modal-5')">Learn More →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-img"><img src="Images/Project 6.png" alt="COVID-19 CT detection"></div>
+      <div class="proj-body">
+        <div class="proj-era">BUET · 2020 – 2022</div>
+        <div class="proj-title">COVID-19 &amp; Pneumonia Detection from Chest CT Images</div>
+        <div class="proj-summary">Two-stage deep convolutional neural network for automated COVID-19 and pneumonia diagnosis from chest CT Images.</div>
+        <div class="proj-footer">
+          <div class="proj-tags"><span class="chip chip-p">U-Net</span><span class="chip chip-p">DenseNet</span><span class="chip">CT</span></div>
+          <button class="learn-more-btn" onclick="openModal('modal-6')">Learn More →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-img"><img src="Images/Project 7.png" alt="PCG heart abnormality detection"></div>
+      <div class="proj-body">
+        <div class="proj-era">BUET · 2021 – 2022</div>
+        <div class="proj-title">Heart Abnormality Detection from PCG Signals</div>
+        <div class="proj-summary">Dual-stream deep learning network combining raw PCG signals and MFCC features with an attention mechanism to automatically detect cardiac abnormalities.</div>
+        <div class="proj-footer">
+          <div class="proj-tags"><span class="chip chip-p">Attention</span><span class="chip chip-p">GRU</span><span class="chip">MFCC</span><span class="chip">PCG</span></div>
+          <button class="learn-more-btn" onclick="openModal('modal-7')">Learn More →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-img"><img src="Images/Project 8.png" alt="Bangla sign language recognition"></div>
+      <div class="proj-body">
+        <div class="proj-era">BUET · 2019</div>
+        <div class="proj-title">Bangla Sign Language Recognition</div>
+        <div class="proj-summary">One of the first Bangla sign language recognition systems using segmentation and SVM classification to identify hand gestures.</div>
+        <div class="proj-footer">
+          <div class="proj-tags"><span class="chip chip-p">SVM</span><span class="chip">Clustering</span><span class="chip">Canny Edge</span></div>
+          <button class="learn-more-btn" onclick="openModal('modal-8')">Learn More →</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════ PROJECT MODALS ════ -->
+
+<div id="modal-1" class="proj-modal-overlay" onclick="closeModalOnOverlay(event,this)">
+  <div class="proj-modal">
+    <div class="modal-img"><img src="Images/Project 1.png" alt="HR-pQCT segmentation"></div>
+    <div class="modal-body">
+      <div class="modal-era">Purdue · 2024 – Present</div>
+      <div class="modal-title">Automated Bone &amp; Soft Tissue Segmentation from HR-pQCT for Osteoporosis Classification</div>
+      <div class="modal-desc">
+        <p>Despite being the most prevalent bone disease worldwide, osteoporosis remains largely silent until a fracture occurs. Emerging modalities such as HR-pQCT can capture rich 3D microstructural information, yet existing analysis pipelines focus almost exclusively on mineralized bones, leaving much of the acquired image data underutilized.</p>
+        <p>We developed the first fully automated multi-region HR-pQCT segmentation framework using SegFormer, simultaneously delineating the cortical and trabecular bone of the tibia and fibula alongside surrounding soft tissues. From each region, 939 radiomic features were extracted and used to train machine learning classifiers on an independent dataset of 20,496 images from 122 HR-pQCT scans.</p>
+        <p>The segmentation model achieved a mean F1 score of 95.36% across all regions. For osteoporosis classification, myotendinous tissue features yielded the best image-level performance, achieving 80.08% accuracy and an AUROC of 0.85, outperforming bone-based models. At the patient level, replacing standard DXA and HR-pQCT parameters with soft tissue radiomics improved AUROC from 0.792 to 0.875, demonstrating that integrated soft tissue assessment captures clinically meaningful signals beyond bone alone.</p>
+      </div>
+      <div class="modal-tags">
+        <span class="chip chip-p">SegFormer</span><span class="chip">Radiomics</span><span class="chip">HR-pQCT</span><span class="chip">DXA</span><span class="chip">Osteoporosis</span>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-1')">Close ✕</button>
+    </div>
+  </div>
+</div>
+
+<div id="modal-2" class="proj-modal-overlay" onclick="closeModalOnOverlay(event,this)">
+  <div class="proj-modal">
+    <div class="modal-img"><img src="Images/Project 2.png" alt="Mixed-domain SSMIS"></div>
+    <div class="modal-body">
+      <div class="modal-era">Purdue · 2025 – Present</div>
+      <div class="modal-title">Mixed-Domain Semi-Supervised Medical Image Segmentation</div>
+      <div class="modal-desc">
+        <p>Medical image segmentation models trained on data from one institution or scanner often fail to generalize when deployed on data from a different source — a challenge known as domain shift. Compounding this, obtaining pixel-level annotations for medical images is expensive and time-consuming, making fully supervised approaches impractical in many clinical settings.</p>
+        <p>We address both challenges with a framework that combines GAN-based style transfer for domain adaptation with a Mean Teacher semi-supervised segmentation architecture built on a MedSAM backbone. The style transfer component reduces the visual gap between source and target domains, while the Mean Teacher framework leverages unlabeled target-domain images alongside a small set of labeled data to improve generalization without requiring additional annotation.</p>
+        <p>With only 20 labeled images from a single source domain, the framework achieves an average Dice score of 79% across test sets from all 6 domains of the prostate MRI benchmark — demonstrating strong generalization under both label scarcity and domain shift conditions.</p>
+      </div>
+      <div class="modal-tags">
+        <span class="chip chip-p">MedSAM</span><span class="chip">GAN</span><span class="chip">Mean Teacher</span><span class="chip">Domain Adaptation</span>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-2')">Close ✕</button>
+    </div>
+  </div>
+</div>
+
+<div id="modal-3" class="proj-modal-overlay" onclick="closeModalOnOverlay(event,this)">
+  <div class="proj-modal">
+    <div class="modal-img"><img src="Images/Project 3.png" alt="Microscale robot tracking"></div>
+    <div class="modal-body">
+      <div class="modal-era">Purdue · 2023 – 2024</div>
+      <div class="modal-title">Microscale Robot Detection &amp; Tracking in Ultrasound Videos</div>
+      <div class="modal-desc">
+        <p>Magnetic microscale robots hold significant promise for targeted drug delivery and minimally invasive surgical interventions — capable of navigating the body and releasing therapeutics precisely at a site of interest. Reliably tracking these robots inside a living organism using ultrasound is, however, extremely challenging: the robots are tiny, their echogenicity is poor, and the signal is corrupted by biological tissue noise, imaging artifacts, low resolution, and out-of-plane motion.</p>
+        <p>To address this, we developed two complementary tracking systems. The first is a robust real-time pipeline based on conventional image processing, capable of tracking five different types of microscale robots through the tortuous paths of the rat colon — handling partial and full occlusion as well as varying ultrasound acquisition parameters. The second leverages the YOLOv8 deep learning architecture, trained on a dedicated annotated dataset of 79 ultrasound videos and over 17,000 frames, with promising detection results.</p>
+      </div>
+      <div class="modal-tags">
+        <span class="chip chip-p">YOLOv8</span><span class="chip">Object Detection</span><span class="chip">Object Tracking</span><span class="chip">Ultrasound</span>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-3')">Close ✕</button>
+    </div>
+  </div>
+</div>
+
+<div id="modal-4" class="proj-modal-overlay" onclick="closeModalOnOverlay(event,this)">
+  <div class="proj-modal">
+    <div class="modal-img"><img src="Images/Project 4.png" alt="PETALUTE MRI"></div>
+    <div class="modal-body">
+      <div class="modal-era">Purdue · 2023 – 2024</div>
+      <div class="modal-title">Novel MRI Sequence Processing (Rosette K-Space Trajectory / PETALUTE)</div>
+      <div class="modal-desc">
+        <p>Conventional MRI cannot capture bone well because bone has an extremely short signal decay time. Specialized sequences like ultrashort echo time (UTE) and zero echo time (ZTE) MRI address this, but the way they sample the imaging space (k-space) is inefficient, leaving signal quality and resolution on the table.</p>
+        <p>We implemented PETALUTE, a novel 3D dual-echo rosette k-space trajectory that samples more efficiently than conventional radial approaches — sweeping through the center of k-space both on the way out and back in. Rat bone specimens were scanned at 7T and reconstructed in MATLAB, with an additional compressed sensing reconstruction applied to further boost image quality.</p>
+        <p>PETALUTE produced high-quality bone images with a 51.54% improvement in signal-to-noise ratio (SNR) and a 41.67% improvement in spatial resolution compared to the standard UTE acquisitions. Compressed sensing reconstruction improved SNR even further, confirming that the rosette trajectory's dense central k-space sampling is particularly well-suited to this reconstruction approach.</p>
+      </div>
+      <div class="modal-tags">
+        <span class="chip chip-p">PETALUTE</span><span class="chip">MRI</span><span class="chip">Compressed Sensing</span><span class="chip">MATLAB</span>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-4')">Close ✕</button>
+    </div>
+  </div>
+</div>
+
+<div id="modal-5" class="proj-modal-overlay" onclick="closeModalOnOverlay(event,this)">
+  <div class="proj-modal">
+    <div class="modal-img"><img src="Images/Project 5.png" alt="EEG sleep staging"></div>
+    <div class="modal-body">
+      <div class="modal-era">BUET · 2021 – 2022 (Undergraduate Thesis)</div>
+      <div class="modal-title">Self-Supervised Learning for EEG Sleep Stage Classification</div>
+      <div class="modal-desc">
+        <p>Accurate sleep stage classification from EEG signals is clinically valuable but labor-intensive to annotate. Expert labeling of overnight recordings is slow and expensive, creating a need for methods that can learn effectively from unlabeled EEG data.</p>
+        <p>We developed a self-supervised contrastive learning framework using a modified ResNet-50 backbone paired with a multi-head attention-based temporal context encoder. The model is first pretrained using a SimCLR framework to learn robust EEG representations without using any labels. The pretrained encoder is then fine-tuned for downstream sleep stage classification using only a small fraction of labeled data.</p>
+        <p>The framework achieved 80.6% overall accuracy on the Sleep-EDF dataset, outperforming supervised baselines across multiple evaluation metrics. Crucially, the model achieved less than a 5% drop in accuracy when trained with only 30% of labeled data, directly addressing the challenge of scarce annotation in clinical EEG datasets.</p>
+      </div>
+      <div class="modal-tags">
+        <span class="chip chip-p">Self-Supervised Learning</span><span class="chip chip-p">SimCLR</span><span class="chip">EEG</span><span class="chip">ResNet-50</span><span class="chip">Attention</span>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-5')">Close ✕</button>
+    </div>
+  </div>
+</div>
+
+<div id="modal-6" class="proj-modal-overlay" onclick="closeModalOnOverlay(event,this)">
+  <div class="proj-modal">
+    <div class="modal-img"><img src="Images/Project 6.png" alt="COVID-19 CT detection"></div>
+    <div class="modal-body">
+      <div class="modal-era">BUET · 2020 – 2022</div>
+      <div class="modal-title">COVID-19 &amp; Pneumonia Detection from Chest CT Images</div>
+      <div class="modal-desc">
+        <p>During the COVID-19 pandemic, the scale of diagnosis required far exceeded what radiologists could handle manually, creating urgent demand for automated tools. Chest CT imaging offers rich structural information for detecting pulmonary disease, but automated analysis requires first isolating the lung region before meaningful classification can occur.</p>
+        <p>We proposed a two-stage deep CNN pipeline. In the first stage, a modified U-Net architecture (SKICU-Net) with additional skip connections segmented the lung region from CT slices, followed by agglomerative hierarchical clustering to discard uninformative slices. In the second stage, a modified DenseNet (P-DenseCOVNet) with parallel convolutional paths classified each segmented slice as COVID-19, common pneumonia, or normal, with the parallel paths helping recover positional information lost in standard DenseNet designs.</p>
+        <p>The segmentation stage achieved an F1 score of 0.97, and the overall diagnostic pipeline reached 87.5% accuracy across three classes, demonstrating the viability of the two-stage approach as an automated diagnostic tool.</p>
+      </div>
+      <div class="modal-tags">
+        <span class="chip chip-p">U-Net</span><span class="chip chip-p">DenseNet</span><span class="chip">CT</span><span class="chip">Unsupervised Clustering</span>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-6')">Close ✕</button>
+    </div>
+  </div>
+</div>
+
+<div id="modal-7" class="proj-modal-overlay" onclick="closeModalOnOverlay(event,this)">
+  <div class="proj-modal">
+    <div class="modal-img"><img src="Images/Project 7.png" alt="PCG heart detection"></div>
+    <div class="modal-body">
+      <div class="modal-era">BUET · 2021 – 2022</div>
+      <div class="modal-title">Heart Abnormality Detection from PCG Signals</div>
+      <div class="modal-desc">
+        <p>Cardiovascular disease is a leading cause of death worldwide, and early detection is critical. Phonocardiogram (PCG) signals are a non-invasive, low-cost indicator of cardiac condition. However, diagnosis currently depends heavily on physician expertise, making it inaccessible in low-resource settings where automated screening tools could have the greatest impact.</p>
+        <p>We proposed a dual-stream deep learning network that simultaneously processes two complementary representations of the heart sound signal. A convolutional stream operates directly on the raw PCG waveform, while a recurrent stream processes Mel-Frequency Cepstral Coefficient (MFCC) features that capture spectral-temporal patterns. The outputs of both streams are fused through a novel attention mechanism that selectively weights the most informative features before passing them to the classification head.</p>
+        <p>The network achieved 87.11% accuracy, 82.41% sensitivity, and 91.8% specificity for binary abnormality detection. The attention-based fusion of complementary signal representations proved more effective than using either stream alone, demonstrating that combining raw waveforms with hand-crafted spectral features can yield robust cardiac screening performance.</p>
+      </div>
+      <div class="modal-tags">
+        <span class="chip chip-p">Attention</span><span class="chip chip-p">GRU</span><span class="chip chip-p">RNN</span><span class="chip">MFCC</span><span class="chip">PCG</span>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-7')">Close ✕</button>
+    </div>
+  </div>
+</div>
+
+<div id="modal-8" class="proj-modal-overlay" onclick="closeModalOnOverlay(event,this)">
+  <div class="proj-modal">
+    <div class="modal-img"><img src="Images/Project 8.png" alt="Bangla sign language recognition"></div>
+    <div class="modal-body">
+      <div class="modal-era">BUET · 2019</div>
+      <div class="modal-title">Bangla Sign Language Recognition</div>
+      <div class="modal-desc">
+        <p>Sign language is the primary mode of communication for the hearing and speech impaired, yet automated recognition systems have focused overwhelmingly on widely spoken sign languages, leaving Bangla Sign Language (BdSL) largely unaddressed. Building such a system requires handling the challenges of hand segmentation from complex backgrounds and extracting discriminative features from hand gesture images.</p>
+        <p>We developed a pipeline that converts input RGB images to YCbCr color space and applies Fuzzy C-means clustering to produce binary segmentation masks of the hand region. From each segmented gesture image, 18 hand-crafted geometric and shape features were extracted for 10 BdSL alphabet signs. A multiclass SVM classifier was trained on a custom dataset of 400 images collected and curated specifically for this task.</p>
+        <p>The system achieved 99.8% accuracy on static hand poses across all 10 signs. Beyond the classification pipeline, a key contribution of this work was the creation and public release of one of the first curated BdSL image datasets, providing a foundation for future research in Bangla sign language recognition.</p>
+      </div>
+      <div class="modal-tags">
+        <span class="chip chip-p">SVM</span><span class="chip">FCM Clustering</span><span class="chip">Canny Edge Detector</span>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-8')">Close ✕</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════ PUBLICATIONS ════ -->
+<section id="publications" class="reveal">
+  <div class="sec-label">
+    <span class="sec-num">03</span>
+    <h2>Publications</h2>
+    <div class="sec-rule"></div>
+  </div>
+
+  <div class="pub-section-hd">Journal Articles</div>
+  <ul class="pub-list-bulleted">
+    <li class="pub-entry">
+      <div class="pub-title"><a href="https://doi.org/10.48550/arXiv.2603.09137" target="_blank">Transformer-Based Multi-Region Segmentation and Radiomic Analysis of HR-pQCT Imaging for Osteoporosis Classification</a></div>
+      <div class="pub-authors"><strong>M. R. Subah</strong>, M. A. G. Zilani, T. L. Nickolas, M. R. Allen, S. J. Warden, R. K. Surowiec</div>
+      <div class="pub-venue">arXiv preprint, arXiv:2603.09137v2, 2026</div>
+    </li>
+    <li class="pub-entry">
+      <div class="pub-title"><a href="https://doi.org/10.1016/j.compbiomed.2022.105806" target="_blank">A dual-stage deep convolutional neural network for automatic diagnosis of COVID-19 and pneumonia from chest CT images</a></div>
+      <div class="pub-authors">F. Sadik, A. G. Dastider, <strong>M. R. Subah</strong>, T. Mahmud, S. A. Fattah</div>
+      <div class="pub-venue">Computers in Biology and Medicine, Vol. 149, 2022, 105806</div>
+    </li>
+  </ul>
+
+  <div class="pub-section-hd">Conference Papers</div>
+  <ul class="pub-list-bulleted">
+    <li class="pub-entry">
+      <div class="pub-title"><a href="https://doi.org/10.1109/TENCON50793.2020.9293887" target="_blank">ResCovNet: A Deep Learning-Based Architecture for COVID-19 Detection from Chest CT Scan Images</a></div>
+      <div class="pub-authors">A. G. Dastider, <strong>M. R. Subah</strong>, F. Sadik, T. Mahmud, S. A. Fattah</div>
+      <div class="pub-venue">IEEE Region 10 Conference (TENCON) 2020, Osaka, Japan</div>
+    </li>
+    <li class="pub-entry">
+      <div class="pub-title"><a href="https://doi.org/10.1109/WIECON-ECE48653.2019.9019931" target="_blank">Bangla Sign Language Recognition with Skin Segmentation and Binary Masking</a></div>
+      <div class="pub-authors">F. Sadik, <strong>M. R. Subah</strong>, A. G. Dastider, S. A. Moon, S. S. Ahbab, S. A. Fattah</div>
+      <div class="pub-venue">IEEE International WIE Conference on Electrical and Computer Engineering (WIECON-ECE) 2019, Bangalore, India</div>
+    </li>
+    <li class="pub-entry">
+      <div class="pub-title"><a href="https://doi.org/10.48550/arXiv.2211.09751" target="_blank">Heart Abnormality Detection from Heart Sound Signals using MFCC Feature and Dual Stream Attention Based Network</a></div>
+      <div class="pub-authors">N. Rashid, S. Saha, <strong>M. R. Subah</strong>, R. A. Robin, S. M. H. Fahim, S. Ahmed, T. I. Mahmud</div>
+      <div class="pub-venue">arXiv preprint, arXiv:2211.09751, 2022</div>
+    </li>
+  </ul>
+
+  <div class="pub-section-hd">Abstracts &amp; Posters</div>
+  <ul class="pub-list-bulleted">
+    <li class="pub-entry">
+      <div class="pub-title"><a href="https://doi.org/10.1093/jbmr/zjaf166" target="_blank">Automated Segmentation and Radiomic Analysis of Soft Tissue Features Distinguishes High Fragility Risk in Chronic Kidney Disease Using HR-pQCT</a></div>
+      <div class="pub-authors"><strong>M. R. Subah</strong>, M. A. G. Zilani, T. L. Nickolas, M. R. Allen, S. J. Warden, R. K. Surowiec</div>
+      <div class="pub-venue">American Society for Bone and Mineral Research (ASBMR) Annual Meeting 2025, Seattle, WA, USA</div>
+    </li>
+    <li class="pub-entry">
+      <div class="pub-title"><a href="https://doi.org/10.1093/jbmr/zjae183" target="_blank">A Feature-based Fracture Risk Prediction Model from HR-pQCT Imaging</a></div>
+      <div class="pub-authors"><strong>M. R. Subah</strong>, M. A. G. Zilani, A. A. Dehghanpour, R. K. Surowiec</div>
+      <div class="pub-venue">American Society for Bone and Mineral Research (ASBMR) Annual Meeting 2024, Toronto, Ontario, Canada</div>
+    </li>
+    <li class="pub-entry">
+      <div class="pub-title"><a href="https://www.researchgate.net/publication/379333254" target="_blank">Implementation of 3D Dual Echo Rosette (PETALUTE) K-space Trajectory for Preclinical Bone MRI</a></div>
+      <div class="pub-authors">F. Sadik, <strong>M. R. Subah</strong>, A. C. Ozen, S. Sawiak, M. Chiew, U. E. Emir, R. K. Surowiec</div>
+      <div class="pub-venue">Experimental Nuclear Magnetic Resonance Conference 2024, Pacific Grove, CA, USA</div>
+    </li>
+  </ul>
+</section>
+
+<!-- ════ SKILLS ════ -->
+<section id="skills" class="reveal">
+  <div class="sec-label">
+    <span class="sec-num">04</span>
+    <h2>Skills</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="skills-grid">
+
+    <div class="skill-group">
+      <h3>Languages</h3>
+      <div class="tags">
+        <span class="chip chip-p">Python</span>
+        <span class="chip chip-p">MATLAB</span>
+        <span class="chip chip-p">R</span>
+        <span class="chip chip-p">C / C++</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Frameworks &amp; Libraries</h3>
+      <div class="tags">
+        <span class="chip chip-p">PyTorch</span>
+        <span class="chip chip-p">TensorFlow</span>
+        <span class="chip chip-p">Keras</span>
+        <span class="chip chip-p">Scikit-Learn</span>
+        <span class="chip chip-p">OpenCV</span>
+        <span class="chip chip-p">NumPy</span>
+        <span class="chip chip-p">Pandas</span>
+        <span class="chip chip-p">Matplotlib</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>ML / DL Methods</h3>
+      <div class="tags">
+        <span class="chip chip-p">Semi-Supervised Learning</span>
+        <span class="chip chip-p">Self-Supervised Learning</span>
+        <span class="chip chip-p">Foundation Models</span>
+        <span class="chip chip-p">VLMs</span>
+        <span class="chip chip-p">GANs</span>
+        <span class="chip chip-p">Classical ML</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Computer Vision &amp; Imaging</h3>
+      <div class="tags">
+        <span class="chip chip-p">Segmentation &amp; Classification</span>
+        <span class="chip chip-p">Object Detection &amp; Tracking</span>
+        <span class="chip chip-p">Domain Adaptation</span>
+        <span class="chip chip-p">Imaging (CT, MRI, DXA, US)</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Signals &amp; Analytics</h3>
+      <div class="tags">
+        <span class="chip chip-p">Feature Engineering</span>
+        <span class="chip chip-p">Statistical Analysis</span>
+        <span class="chip chip-p">Image Processing</span>
+        <span class="chip chip-p">1D Biosignals (EEG, PCG)</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Tools &amp; Softwares</h3>
+      <div class="tags">
+        <span class="chip chip-p">CUDA</span>
+        <span class="chip chip-p">Jupyter</span>
+        <span class="chip chip-p">WSL</span>
+        <span class="chip chip-p">LaTeX</span>
+        <span class="chip chip-p">Git</span>
+        <span class="chip chip-p">Simulink</span>
+        <span class="chip chip-p">Adobe Illustrator</span>
+        <span class="chip chip-p">Microsoft Office</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════ EDUCATION ════ -->
+<section id="education" class="reveal">
+  <div class="sec-label">
+    <span class="sec-num">05</span>
+    <h2>Education</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="tl-list">
+
+    <!-- PhD -->
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-logo"><img src="Images/Purdue.png" alt="Purdue University"></div>
+        <div class="tl-period">2023 – Present</div>
+      </div>
+      <div>
+        <div class="tl-title">Ph.D. in Biomedical Engineering</div>
+        <div class="tl-sub"><a href="https://engineering.purdue.edu/BME" target="_blank">Weldon School of Biomedical Engineering, Purdue University, West Lafayette, IN, USA</a></div>
+        <div class="tl-detail">CGPA: 4.00 / 4.00 &nbsp;·&nbsp; AAUW International Doctoral Degree Fellow 2025–2026</div>
+        <div class="tl-detail" style="margin-top:.3rem;">Thesis: "Advancing Multi-Modal Representation Learning in Biomedical Imaging for Segmentation and Disease Characterization" — supervised by Dr. Rachel Surowiec</div>
+        <div class="edu-sub">
+          <div class="edu-sub-hd">Relevant Coursework</div>
+          <div class="edu-cw-grid">
+            <div class="edu-cw-item"><strong>ECE 60146:</strong> Deep Learning</div>
+            <div class="edu-cw-item"><strong>ECE 57000:</strong> Artificial Intelligence</div>
+            <div class="edu-cw-item"><strong>ECE 63700:</strong> Digital Image Processing I</div>
+            <div class="edu-cw-item"><strong>BME 59500:</strong> Medical Imaging &amp; Diagnostic Technology</div>
+            <div class="edu-cw-item"><strong>BME 50100:</strong> Multivariate Analyses in Biostatistics</div>
+            <div class="edu-cw-item"><strong>MA 51900:</strong> Introduction to Probability</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BSc -->
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-logo"><img src="Images/BUET.png" alt="BUET"></div>
+        <div class="tl-period">2017 – 2022</div>
+      </div>
+      <div>
+        <div class="tl-title">B.Sc. in Electrical and Electronic Engineering</div>
+        <div class="tl-sub"><a href="https://eee.buet.ac.bd/" target="_blank">Bangladesh University of Engineering and Technology (BUET), Dhaka, Bangladesh</a></div>
+        <div class="tl-detail">CGPA: 3.90 / 4.00 &nbsp;·&nbsp; Top 10% among 189 students &nbsp;·&nbsp; Major: Communication and Signal Processing</div>
+        <div class="tl-detail" style="margin-top:.2rem;">Thesis: "Self-Supervised Contrastive Learning for Automatic Sleep Stage Classification from Single Channel EEG" — supervised by Dr. Mohammad Ariful Haque</div>
+        <div class="edu-sub">
+          <div class="edu-sub-hd">Relevant Coursework</div>
+          <div class="edu-cw-grid">
+            <div class="edu-cw-item"><strong>EEE 211:</strong> Continuous Signals &amp; Linear Systems</div>
+            <div class="edu-cw-item"><strong>EEE 331:</strong> Random Signals and Processes</div>
+            <div class="edu-cw-item"><strong>EEE 311:</strong> Digital Signal Processing I</div>
+            <div class="edu-cw-item"><strong>EEE 431:</strong> Digital Signal Processing II</div>
+            <div class="edu-cw-item"><strong>EEE 425:</strong> Biomedical Signals Instrumentation &amp; Measurement</div>
+            <div class="edu-cw-item"><strong>EEE 447:</strong> Introduction to Digital Image Processing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HSC -->
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-logo"><img src="Images/Ctg College.png" alt="Chittagong College"></div>
+        <div class="tl-period">2014 – 2016</div>
+      </div>
+      <div>
+        <div class="tl-title">Higher Secondary Certificate (HSC)</div>
+        <div class="tl-sub"><a href="https://ctgcollege.gov.bd/" target="_blank">Chittagong College, Chittagong, Bangladesh</a></div>
+        <div class="tl-detail">GPA: 5.00 / 5.00 &nbsp;·&nbsp; 4th among female students in the Chittagong Board &nbsp;·&nbsp; Group: Science</div>
+      </div>
+    </div>
+
+    <!-- SSC -->
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-logo"><img src="Images/BMS.png" alt="BMS Girls High School"></div>
+        <div class="tl-period">2012 – 2014</div>
+      </div>
+      <div>
+        <div class="tl-title">Secondary School Certificate (SSC)</div>
+        <div class="tl-sub"><a href="https://www.facebook.com/bmsgsc.edu/" target="_blank">BMS Girls' High School and College, Chittagong, Bangladesh</a></div>
+        <div class="tl-detail">GPA: 5.00 / 5.00 &nbsp;·&nbsp; 2nd among female students in the Chittagong Board &nbsp;·&nbsp; Group: Science</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scores + Certifications -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2rem;">
+
+    <div class="edu-sub">
+      <div class="edu-sub-hd">Standardised Tests</div>
+      <div class="scores-pills">
+        <div class="score-pill">
+          <strong>GRE</strong>
+          Quant: 168/170 (90th pct.)<br>
+          Verbal: 162/170 (90th pct.)<br>
+          AWA: 5/6 (91st pct.)
+        </div>
+        <div class="score-pill">
+          <strong>IELTS</strong>
+          Overall: 8.5/9.0 (C2)<br>
+          R: 9.0 · L: 9.0 · S: 8.5 · W: 7.0
+        </div>
+      </div>
+    </div>
+
+    <div class="edu-sub">
+      <div class="edu-sub-hd">Certifications (Coursera)</div>
+      <div class="cert-list">
+        <div class="cert-item"><span><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/DEU9Y4SSGZ2E" target="_blank">Deep Learning Specialization</a></span><span class="cert-year">May 2020</span></div>
+        <div class="cert-item"><span><a href="https://www.coursera.org/account/accomplishments/certificate/NFL2HX5JGVLL" target="_blank">Sequence Models</a></span><span class="cert-year">May 2020</span></div>
+        <div class="cert-item"><span><a href="https://www.coursera.org/account/accomplishments/certificate/WHXM8SF48V5J" target="_blank">Convolutional Neural Networks</a></span><span class="cert-year">May 2020</span></div>
+        <div class="cert-item"><span><a href="https://www.coursera.org/account/accomplishments/certificate/CWMT2CF6Z7FE" target="_blank">Structuring Machine Learning Projects</a></span><span class="cert-year">Apr 2020</span></div>
+        <div class="cert-item"><span><a href="https://www.coursera.org/account/accomplishments/certificate/5BLV3XV6ZKN2" target="_blank">Improving Deep Neural Networks</a></span><span class="cert-year">Apr 2020</span></div>
+        <div class="cert-item"><span><a href="https://www.coursera.org/account/accomplishments/certificate/WWY52EAKA7FX" target="_blank">Neural Networks &amp; Deep Learning</a></span><span class="cert-year">Apr 2020</span></div>
+        <div class="cert-item"><span><a href="https://www.coursera.org/account/accomplishments/certificate/2F9YBF827XLQ" target="_blank">Machine Learning</a></span><span class="cert-year">Apr 2020</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════ AWARDS ════ -->
+<section id="awards" class="reveal">
+  <div class="sec-label">
+    <span class="sec-num">06</span>
+    <h2>Honors &amp; Awards</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="award-list">
+
+    <div class="award-item">
+      <div class="award-year">2025–2026</div>
+      <div>
+        <div class="award-name">AAUW International Doctoral Degree Fellowship</div>
+        <div class="award-detail">Sponsor: American Association of University Women (AAUW)</div>
+        <div class="award-detail">Received a $25,000 fellowship for academic achievement, scholarly promise, and commitment to women.</div>
+      </div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2025–2026</div>
+      <div>
+        <div class="award-name">Finalist — Schlumberger Foundation Faculty for the Future Fellowship</div>
+        <div class="award-detail">Sponsor: Schlumberger Foundation</div>
+        <div class="award-detail">Selected as a finalist for a highly competitive fellowship supporting women in STEM from developing countries.</div>
+      </div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2025</div>
+      <div>
+        <div class="award-name">Co-Investigator — U.S. National Academy of Medicine (NAM) Catalyst Award</div>
+        <div class="award-detail">Sponsor: National Academy of Medicine</div>
+        <div class="award-detail">Awarded funding as co-investigator for a project focused on increasing mobility and strength in aging populations.</div>
+      </div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2024, 2025</div>
+      <div>
+        <div class="award-name">Purdue Graduate Student Government (PGSG) Travel Grant</div>
+        <div class="award-detail">Sponsor: Purdue Graduate Student Government</div>
+        <div class="award-detail">Competitive travel funding to support conference participation and research dissemination.</div>
+      </div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2023</div>
+      <div>
+        <div class="award-name">High Impact Journal Publication Award</div>
+        <div class="award-detail">Sponsor: Department of EEE, BUET</div>
+        <div class="award-detail">Received a financial incentive for publishing in a Q1 journal (Computers in Biology and Medicine).</div>
+      </div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2017–2019</div>
+      <div>
+        <div class="award-name">Dean's List Award</div>
+        <div class="award-detail">Sponsor: Department of EEE, BUET</div>
+        <div class="award-detail">Awarded for achieving honours with CGPA ≥ 3.75.</div>
+      </div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2017–2019</div>
+      <div>
+        <div class="award-name">University Merit Scholarship</div>
+        <div class="award-detail">Sponsor: Department of EEE, BUET</div>
+        <div class="award-detail">Awarded for top academic performance in semester final examinations.</div>
+      </div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2018</div>
+      <div>
+        <div class="award-name">Winner — EEE Day Inter-University Poster Presentation Competition</div>
+        <div class="award-detail">Sponsor: Department of EEE, BUET</div>
+        <div class="award-detail">First place for poster titled "Bio-Stove: Healthy Cooking for Rural Women."</div>
+      </div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2017–2022</div>
+      <div>
+        <div class="award-name">Scholarship of Merit — Talent Pool</div>
+        <div class="award-detail">Sponsor: Board of Intermediate and Secondary Education, Chittagong</div>
+        <div class="award-detail">Monthly government scholarship and full tuition waiver for undergraduate. Received for outstanding results in the Higher Secondary Certificate (HSC) examination 2016 (4th among female students in the Chittagong Board).</div>
+      </div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2014–2016</div>
+      <div>
+        <div class="award-name">Scholarship of Merit — Talent Pool</div>
+        <div class="award-detail">Sponsor: Board of Intermediate and Secondary Education, Chittagong</div>
+        <div class="award-detail">Monthly government scholarship and full tuition waiver for grades XI and XII. Received for outstanding results in the Secondary School Certificate (SSC) examination 2014 (2nd among female students in the Chittagong Board).</div>
+      </div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2012–2014</div>
+      <div>
+        <div class="award-name">Scholarship of Merit — Talent Pool</div>
+        <div class="award-detail">Sponsor: Board of Intermediate and Secondary Education, Chittagong</div>
+        <div class="award-detail">Monthly government scholarship and full tuition waiver for grades IX and X. Received for outstanding results in the Junior School Certificate (JSC) examination 2011 (2nd among female students in the Chittagong Board).</div>
+      </div>
+    </div>
+
+    <div class="award-item">
+      <div class="award-year">2012</div>
+      <div>
+        <div class="award-name">Concord Scholarship Program</div>
+        <div class="award-detail">Sponsor: Concord Group of Companies</div>
+        <div class="award-detail">Awarded to 10 top-performing students in the Chittagong Board.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════ VOLUNTEERING ════ -->
+<section id="volunteering" class="reveal">
+  <div class="sec-label">
+    <span class="sec-num">07</span>
+    <h2>Leadership &amp; Volunteering</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="vol-list">
+
+    <div class="vol-item">
+      <div class="vol-header"><div class="vol-role">Chairperson</div><div class="vol-period">Apr 2021 – May 2022</div></div>
+      <div class="vol-org"><a href="https://www.facebook.com/ieee.sps.buet.sb/" target="_blank">IEEE Signal Processing Society (SPS) BUET Student Branch Chapter</a></div>
+      <ul class="vol-bullets">
+        <li>Organized the 2nd Signal Processing Research and Innovation Conclave 2021 — virtual seminar on ML/DL in signal processing.</li>
+        <li>Organized a technical talk on signal processing as part of the Diversity and Inclusion Talk Series 2021.</li>
+        <li>Led a team to build an official website for the chapter.</li>
+      </ul>
+    </div>
+
+    <div class="vol-item">
+      <div class="vol-header"><div class="vol-role">Membership Development Executive</div><div class="vol-period">Jul 2019 – Apr 2021</div></div>
+      <div class="vol-org"><a href="https://www.facebook.com/IEEEBUET/" target="_blank">IEEE BUET Student Branch</a></div>
+      <ul class="vol-bullets">
+        <li>Prepared over 150 certificates as a student volunteer at TENSYMP 2020.</li>
+        <li>Organized membership drives to recruit new members in 2019 and 2020.</li>
+        <li>Earlier served as Membership Development Coordinator (Nov 2018 – Jul 2019).</li>
+      </ul>
+    </div>
+
+    <div class="vol-item">
+      <div class="vol-header"><div class="vol-role">Treasurer</div><div class="vol-period">Apr 2021 – May 2022</div></div>
+      <div class="vol-org"><a href="https://www.facebook.com/IEEE.BUET.WIE/" target="_blank">IEEE BUET Student Branch Women In Engineering (WIE) Affinity Group</a></div>
+      <ul class="vol-bullets">
+        <li>Organized workshops on essential technical skills (e.g., embedded system design, PCB design, digital logic, AutoCAD, LaTeX), seminars, and outreach programs for pre-university institutions.</li>
+        <li>Part of the organizing team for the Celebration of International Women's Day 2020, focusing on engaging more women in the power and energy sector.</li>
+        <li>Maintained the official website for two years as Website Coordinator.</li>
+        <li>Earlier served as Assistant Treasurer (Jul 2019 – Apr 2021), Website Coordinator (Nov 2018 – Jul 2019), and Photographer (Jan 2018 – Nov 2018).</li>
+      </ul>
+    </div>
+
+    <div class="vol-item">
+      <div class="vol-header"><div class="vol-role">Vice President</div><div class="vol-period">Apr 2021 – May 2022</div></div>
+      <div class="vol-org"><a href="https://www.facebook.com/buet.energy.club/" target="_blank">BUET Energy Club</a></div>
+      <ul class="vol-bullets">
+        <li>Organized "Decoding DESCO" — a technical talk on opportunities for engineers at DESCO.</li>
+        <li>Led Membership Drive 2022, recruiting 51 new members.</li>
+        <li>Earlier served as Treasurer (Jul 2019 – Apr 2021) and Publicity Coordinator (Aug 2018 – Jul 2019).</li>
+      </ul>
+    </div>
+
+    <div class="vol-item">
+      <div class="vol-header"><div class="vol-role">Vice President</div><div class="vol-period">Apr 2021 – May 2022</div></div>
+      <div class="vol-org"><a href="https://www.facebook.com/EWBUET" target="_blank">Environment Watch: BUET</a></div>
+      <ul class="vol-bullets">
+        <li>Part of the organizing team for the 3rd EW:B National Enviro+ Challenge 2018 — a two-day event including an environment olympiad, case study competition, photography contest, and poster presentation.</li>
+        <li>Volunteered for the 2nd EW:B National Enviro+ Challenge 2017 and Clean Campus 2017 events.</li>
+        <li>Earlier served as Office Secretary (May 2019 – Apr 2021), Assistant Organizing Secretary (Oct 2018 – Apr 2019), and Event Organizer (Apr 2018 – Oct 2018).</li>
+      </ul>
+    </div>
+
+    <div class="vol-item">
+      <div class="vol-header"><div class="vol-role">Vice President</div><div class="vol-period">Jun 2019 – May 2022</div></div>
+      <div class="vol-org"><a href="https://www.facebook.com/AlokbortikaBUET/" target="_blank">Alokbortika — An Open Library and Book Reading Club</a></div>
+      <ul class="vol-bullets">
+        <li>Acted as primary judge for the Intra-BUET Book Review Competition 2021.</li>
+        <li>Contributed to collecting over 250 new books for the library.</li>
+        <li>Earlier served as Assistant Treasurer (Nov 2018 – Jun 2019).</li>
+      </ul>
+    </div>
+
+    <div class="vol-item">
+      <div class="vol-header"><div class="vol-role">Contributing Editor</div><div class="vol-period">Aug 2017 – Mar 2018</div></div>
+      <div class="vol-org"><a href="https://bn.wikipedia.org/wiki/%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%A7%E0%A6%BE%E0%A6%A8_%E0%A6%AA%E0%A6%BE%E0%A6%A4%E0%A6%BE" target="_blank">Wikipedia — Bangla Edition</a></div>
+      <ul class="vol-bullets">
+        <li>Translated 5+ articles into Bangla Wikipedia.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════ CONTACT ════ -->
+<section id="contact" class="reveal" style="padding-bottom:5rem;">
+  <div class="sec-label">
+    <span class="sec-num">08</span>
+    <h2>Contact</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="contact-inner">
+
+    <div class="contact-text">
+      <h3>Get in touch</h3>
+      <p>I'm always open to discussing research, collaborations, or opportunities. Please feel free to reach out — I'll do my best to reply promptly!</p>
+      <div class="contact-btns">
+        <a href="Resume.pdf" class="btn btn-primary" download>↓ Download CV</a>
+      </div>
+    </div>
+
+    <div class="contact-card">
+      <div class="cc-row">
+        <div class="cc-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+        <div class="cc-content">
+          <div class="cc-label">Email</div>
+          <div class="cc-val"><a href="mailto:msubah@purdue.edu">msubah@purdue.edu</a></div>
+        </div>
+      </div>
+      <div class="cc-row">
+        <div class="cc-icon"><svg viewBox="0 0 24 24"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5 12 0z"/></svg></div>
+        <div class="cc-content">
+          <div class="cc-label">Google Scholar</div>
+          <div class="cc-val"><a href="https://scholar.google.com/citations?user=VcC-JzsAAAAJ&hl=en" target="_blank">Mohseu Rashid Subah</a></div>
+        </div>
+      </div>
+      <div class="cc-row">
+        <div class="cc-icon"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+        <div class="cc-content">
+          <div class="cc-label">LinkedIn</div>
+          <div class="cc-val"><a href="https://linkedin.com/in/mohseu-rashid-subah" target="_blank">mohseu-rashid-subah</a></div>
+        </div>
+      </div>
+      <div class="cc-row">
+        <div class="cc-icon"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></div>
+        <div class="cc-content">
+          <div class="cc-label">GitHub</div>
+          <div class="cc-val"><a href="https://github.com/mohseurashid" target="_blank">github.com/mohseurashid</a></div>
+        </div>
+      </div>
+      <div class="cc-row">
+        <div class="cc-icon" style="font-size:.9rem;">📍</div>
+        <div class="cc-content">
+          <div class="cc-label">Location</div>
+          <div class="cc-val">West Lafayette, IN 47907, USA</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</div><!-- /wrap -->
+
+<footer>
+  <span class="footer-name">Mohseu Rashid Subah</span>
+  <span class="footer-note">Updated <script>document.write(new Date().toLocaleDateString('en-US',{month:'long',year:'numeric'}))</script></span>
+</footer>
+
+<!-- ════ JAVASCRIPT ════ -->
+<script>
+/* Scroll reveal */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: .05 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* Project modals */
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeModalOnOverlay(e, overlay) {
+  if (e.target === overlay) closeModal(overlay.id);
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.proj-modal-overlay.open').forEach(m => {
+      m.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
+});
+</script>
+
+</body>
+</html>
